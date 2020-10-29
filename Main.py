@@ -14,7 +14,6 @@ while True:
 		if event.type == pygame.QUIT:
 			pygame.quit()
 		snake_hed.update(event)
-		break
 	last_score = snake_hed.score
 	snake_hed.move(apple, snake_tail)
 	present_score = snake_hed.score
