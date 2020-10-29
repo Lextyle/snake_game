@@ -13,7 +13,10 @@ while True:
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			pygame.quit()
+		last_snake_direction = snake_hed.direction
 		snake_hed.update(event)
+		if snake_hed.direction != last_snake_direction:
+			break
 	last_score = snake_hed.score
 	snake_hed.move(apple, snake_tail)
 	present_score = snake_hed.score
