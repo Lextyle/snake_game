@@ -8,7 +8,7 @@ apple = Apple(randint(0, 700 - tile_width), randint(0, 700 - tile_height), tile_
 snake_hed = SnakeHed(700 // 2 - tile_width // 2, 700 // 2 - tile_height // 2, tile_width, tile_height, (0, 200, 0))
 snake_tail = []
 while True:
-	pygame.time.delay(100)
+	pygame.time.delay(60)
 	window.fill((0, 0, 0))
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
