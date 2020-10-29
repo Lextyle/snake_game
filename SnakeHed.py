@@ -52,8 +52,6 @@ class SnakeHed():
 			self.rect.x += self.speed
 		if collide_rect(self, apple):
 			self.score += 1
-		
-		
 		for snake_detal in snake_tail:
 			if collide_rect(self, snake_detal):
 				self.die = True
