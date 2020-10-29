@@ -2,10 +2,12 @@ import pygame
 from Apple import *
 from SnakeHed import *
 from random import randint
-window = pygame.display.set_mode((700, 700))
+window_width = 700
+window_height = 700
+window = pygame.display.set_mode((window_width, window_height))
 tile_width = tile_height = 10
-apple = Apple(randint(0, 700 - tile_width), randint(0, 700 - tile_height), tile_width, tile_height, (200, 0, 0))
-snake_hed = SnakeHed(700 // 2 - tile_width // 2, 700 // 2 - tile_height // 2, tile_width, tile_height, (0, 200, 0))
+apple = Apple(randint(0, window_width - tile_width), randint(0, window_height - tile_height), tile_width, tile_height, (200, 0, 0))
+snake_hed = SnakeHed(window_width // 2 - tile_width // 2, window_height // 2 - tile_height // 2, tile_width, tile_height, (0, 200, 0))
 snake_tail = []
 while True:
 	pygame.time.delay(60)
@@ -18,12 +20,12 @@ while True:
 		if snake_hed.direction != last_snake_direction:
 			break
 	last_score = snake_hed.score
-	snake_hed.move(apple, snake_tail)
+	snake_hed.move(apple, snake_tail, window_width, window_height)
 	present_score = snake_hed.score
 	if snake_hed.die:
 		pygame.quit()
 	if present_score > last_score:
-		apple = Apple(randint(0, 700 - tile_width), randint(0, 700 - tile_height), tile_width, tile_height, (200, 0, 0))
+		apple = Apple(randint(0, window_width - tile_width), randint(0, window_height - tile_height), tile_width, tile_height, (200, 0, 0))
 		snake_tail.append(SnakeHed(0, 0, tile_width, tile_height, (0, 150, 0)))
 	apple.draw(window)
 	for snake_detal in snake_tail:

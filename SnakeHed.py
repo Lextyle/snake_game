@@ -27,7 +27,7 @@ class SnakeHed():
 			if event.key == K_RIGHT:
 				if self.direction != "LEFT":
 					self.direction = "RIGHT"
-	def move(self, apple, snake_tail):
+	def move(self, apple, snake_tail, window_width, window_height):
 		last_pos = [self.rect.x, self.rect.y]
 		for snake_detal in snake_tail:
 			last_pos_2 = [snake_detal.rect.x, snake_detal.rect.y]
@@ -35,12 +35,12 @@ class SnakeHed():
 			snake_detal.rect.y = last_pos[1]
 			last_pos = last_pos_2
 		if self.rect.x < 0:
-			self.rect.x = 700 - self.width
-		if self.rect.x > 700 - self.width:
+			self.rect.x = window_width - self.width
+		if self.rect.x > window_width - self.width:
 			self.rect.x = 0
 		if self.rect.y < 0:
-			self.rect.y = 700 - self.height
-		if self.rect.y > 700 - self.height:
+			self.rect.y = window_height - self.height
+		if self.rect.y > window_height - self.height:
 			self.rect.y = 0
 		if self.direction == "UP":
 			self.rect.y -= self.speed
